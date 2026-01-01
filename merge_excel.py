@@ -29,6 +29,12 @@ def merge_excel():
 
         merged = pd.concat(dfs, ignore_index=True)
 
+        # FORMAT TANGGAL
+        if "tanggal" in merged.columns:
+            merged["tanggal"] = pd.to_datetime(
+                merged["tanggal"], errors="coerce"
+            ).dt.strftime("%d/%m/%Y")
+
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_file = output_folder / f"merged_{timestamp}.xlsx"
         merged.to_excel(output_file, index=False)
