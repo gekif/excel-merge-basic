@@ -17,3 +17,12 @@ Simple Python script to merge multiple Excel files into one output file.
 ```bash
 pip install -r requirements.txt
 python merge_excel.py
+```
+
+## How to install
+- Command
+```bash
+pip install pyinstaller
+pyinstaller --onefile merge_excel.py
+```
+- Make sure have folder before the apps used contains: data, output and logs
